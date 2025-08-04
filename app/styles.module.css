@@ -1,0 +1,72 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr min(960px, 90%) 1fr;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+.container > * {
+  grid-column: 2;
+}
+
+.blogcontainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.blogcontainer > *:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.spinnerWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Tam ekran ortala */
+}
+
+.spinner {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.spinner div {
+  transform-origin: 40px 40px;
+  animation: spinner 1.2s linear infinite;
+  position: absolute;
+  width: 6px;
+  height: 18px;
+  border-radius: 20%;
+  background: #4a90e2;
+  top: 3px;
+  left: 37px;
+}
+
+.spinner div:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: -1.1s;
+}
+.spinner div:nth-child(2) {
+  transform: rotate(30deg);
+  animation-delay: -1s;
+}
+.spinner div:nth-child(3) {
+  transform: rotate(60deg);
+  animation-delay: -0.9s;
+}
+/* ... */
+.spinner div:nth-child(12) {
+  transform: rotate(330deg);
+  animation-delay: 0s;
+}
+
+@keyframes spinner {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
